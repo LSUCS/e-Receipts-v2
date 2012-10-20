@@ -1,0 +1,99 @@
+<div id="search-criteria">
+
+    <div class="row">
+        <div class="column">
+            <label for="search-type">Search By: </label>
+            <select id="search-type">
+                <option value="name">Name</option>
+                <option value="email">Email</option>
+                <option value="issuer_forum_name">Issuer</option>
+            </select>
+        </div>
+        
+        <div class="column">
+            <div class="ui-widget">
+                <input id="search-value" />
+            </div>
+        </div>
+        
+        <div class="column">
+            <div class="ui-widget">
+                <label for="product">Product: </label>
+                <input id="product" />
+            </div>
+        </div>
+        
+        <div class="column">
+            <label for="event" style="width: 60px">Event: </label>
+            <select id="event">
+                <option value="">None</option>
+                <?php foreach ($DataBag["events"] as $event) echo '<option value="' . $event["event_id"] . '">' . $event["event_name"] . "</option>"; ?>
+            </select>
+        </div>
+        
+    </div>
+    
+    <div class="row date-box">
+    
+        <div class="refunded-text">
+            Refunded: 
+        </div>
+        <p>
+            <input type="checkbox" id="refunded" />
+            <label for="refunded"></label>
+        </p>
+        
+        <div class="refunded-text">
+            By Date: 
+        </div>
+        <p>
+            <input type="checkbox" id="bydate" />
+            <label for="bydate"></label>
+        </p>
+        <div class="column">
+            <div class="ui-widget">
+                <label for="start-date">Start: </label>
+                <input id="start-date" />
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui-widget">
+                <label for="end-date">End: </label>
+                <input id="end-date" />
+            </div>
+        </div>
+    
+    </div>
+    
+</div>
+
+<div id="search-results">
+</div>
+
+<div id="view-receipt">
+    <div class="receipt-info">
+        <div class="left-div">
+            <p><label>ID:</label><span class="receipt-id"></span></p>
+            <p><label>Name:</label><span class="receipt-name"></span></p>
+            <p><label>Email:</label><span class="receipt-email"></span></p>
+            <p><label>Comments:</label><span class="receipt-comments"></span></p>
+        </div>
+        <div>
+            <p><label>Date:</label><span class="receipt-date"></span></p>
+            <p><label>Forum:</label><span class="receipt-forum"></span></p>
+            <p><label>Student ID:</label><span class="receipt-studentid"></span></p>
+            <p><label>Issuer:</label><span class="receipt-issuer"></span></p>
+        </div>
+    </div>
+    <div class="product-table">
+        <div class="products-head">
+            <span class="product-name">Product</span>
+            <span class="product-price">Price</span>
+            <span class="product-refunded">Refunded</span>
+        </div>
+        <div class="products-body">
+        </div>
+    </div>
+    <div class="controls">
+    </div>
+</div>

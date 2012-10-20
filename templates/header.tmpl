@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+    <head>
+    
+        <title><?php echo $DataBag["title"]; ?></title>
+        <?php if ($DataBag["refresh"]) echo '<meta http-equiv="refresh" content="3;url=index.php">'; ?>
+        <link rel="shortcut icon" href="images/favicon.ico">
+        
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui/jquery-ui.custom.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.dataTables_themeroller.css" />
+        <link rel="stylesheet" type="text/css" href="css/TableTools_JUI.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/jquery.tools.min.js"></script>
+        <script type="text/javascript" src="js/jquery.jeditable.min.js"></script>
+        <script type="text/javascript" src="js/TableTools.min.js"></script>
+        <script type="text/javascript" src="js/ZeroClipboard.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        
+        <?php
+            if (file_exists("css/pages/" . $DataBag["page"] . ".css")) echo '<link rel="stylesheet" type="text/css" href="css/pages/' . $DataBag["page"] . '.css" />';
+            if (file_exists("js/pages/" . $DataBag["page"] . ".js")) echo '<script type="text/javascript" src="js/pages/' . $DataBag["page"] . '.js"></script>';
+        ?>
+        
+    </head>
+    
+    <body>
+    
+        <div id="wrapper">
+        
+            <div id="header">
+                
+				<div id="title-container">
+					<div id="title">
+						dev e<span>-</span>Receipts
+					</div>
+				</div>
+                
+                <div id="navbar">
+                    <ul>
+                        <?php
+                            foreach ($DataBag["navbar"] as $elem) {
+                                if ($elem[2] == $DataBag["page"]) echo '<li><a class="active" href="' . $elem[0] . '">' . $elem[1] . '</a>';
+                                else echo '<li><a href="' . $elem[0] . '">' . $elem[1] . '</a>';
+                            }
+                        ?>
+                    </ul>
+                </div>
+				
+				<a href="index.php?page=account">
+                    <div id="userbox">
+                        <img src="images/user.png" /><span><?php if ($DataBag["loggedin"]) { echo $DataBag["user"]["username"]; } else echo "Sign In"; ?></span>
+                    </div>
+                </a>
+                
+                <div id="subtitle">
+                    <img src="images/arrow.png" /><?php echo $DataBag["subtitle"]; ?>
+                </div>
+				
+            </div>
+			
+			<div id="overlay" class="content-overlay">
+                <div id="overlay-content">
+                </div>
+                <div id="close-overlay">
+                </div>
+            </div>
+            <div id="screen">
+            </div>
+            
+            <div id="content">

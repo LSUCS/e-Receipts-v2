@@ -1,0 +1,45 @@
+<div id="view-receipt">
+    <div class="receipt-info-container">
+        <div class="receipt-info">
+            <div class="left-div">
+                <p><label>ID:</label><span id="receipt_id"><?php echo $DataBag["receipt"]["receipt_id"]; ?></span></p>
+                <p><label>Name:</label><?php echo $DataBag["receipt"]["name"]; ?></p>
+                <p><label>Email:</label><?php echo $DataBag["receipt"]["email"]; ?></p>
+                <p><label>Comments:</label><span class="receipt-comments"><?php echo $DataBag["receipt"]["comments"]; ?></span></p>
+            </div>
+            <div>
+                <p><label>Date:</label><?php echo $DataBag["receipt"]["date"]; ?></p>
+                <p><label>Forum:</label><?php echo $DataBag["receipt"]["customer_forum_name"]; ?></p>
+                <p><label>Student ID:</label><?php echo $DataBag["receipt"]["student_id"]; ?></p>
+                <p><label>Issuer:</label><?php echo $DataBag["receipt"]["issuer_forum_name"]; ?></p>
+                <p><label>Total:</label>&pound;<?php echo $DataBag["receipt"]["total"]; ?></p>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div class="product-table">
+        <div class="products-head">
+            <span class="product-name">Product</span>
+            <span class="product-price">Price</span>
+            <span class="product-refunded">Refund?</span>
+        </div>
+        <div class="products-body">
+            <?php
+                $i = false;
+                foreach ($DataBag["receipt"]["purchases"] as $purchase) {
+                    echo '<div class="product-row ' . ($i?"odd":"event") . '"><span class="product-name">' . $purchase["product_name"] . '</span><span class="product-price">&pound;' . $purchase["price"] . '</span><span class="product-refunded">';
+                    if ($purchase["refunded"] == 1) echo "N/A";
+                    else echo '<p><input type="checkbox" id="purchase' . $purchase["purchase_id"] . '" /><label for="purchase' . $purchase["purchase_id"] . '"></label></p>';
+                    echo '</span></div>';
+                    $i = !$i;
+                }
+            ?>
+        </div>
+    </div>
+    <textarea id="refund-comments">Comments</textarea>
+    <div id="total-container">
+        <div id="total-text">Total Refund: </div>
+        <div id="total">0.00</div>
+        <button id="submit-refund">Issue Refund</button>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+#event-table tbody td {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+#event-table tbody p {
+    margin-left: 27px;
+    position: relative;
+    top: 5px;
+}
+
+#add-event {
+    margin-top: 40px;
+    margin-left: 200px;
+    height: 40px;
+}
+    #add-event div {
+        float: left;
+        line-height: 30px;
+        margin-right: 40px;
+    }
+    #ticket-limit {
+        width: 80px;
+    }
+#add-button {
+    font-size: 12px;
+}

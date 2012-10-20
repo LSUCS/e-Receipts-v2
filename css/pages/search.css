@@ -1,0 +1,186 @@
+#search-criteria {
+
+}
+    #search-criteria label {
+        display: block;
+        float: left;
+        width: 80px;
+        line-height: 35px;
+        font-size: 15px;
+    }
+    #search-criteria input {
+        width: 140px;
+        font-size: 14px;
+    }
+    #search-criteria .column {
+        float: left;
+        margin-left: 30px;
+    }
+    #search-criteria .ui-widget {
+        margin-bottom: 10px;
+    }
+    #search-criteria #search-type {
+        position: relative;
+        top: 2px;
+        height: 30px;
+    }
+    #search-criteria #event {
+        position: relative;
+        top: 2px;
+        height: 30px;
+        width: 130px;
+    }
+    #search-criteria #search-value {
+        margin-left: -25px;
+    }
+    #search-criteria p label {
+        float: left;
+        position: relative;
+        top: 10px;
+        width: 0px;
+    }
+    #search-criteria .refunded-text {
+        float: left;
+        width: 80px;
+        height: 35px;
+        line-height: 35px;
+        margin-left: 35px;
+    }
+    #search-criteria .row {
+        height: 60px;
+    }
+    #search-criteria .date-box {
+        margin-left: 90px;
+    }
+        #search-criteria .date-box .ui-widget label {
+            width: 50px;
+        }
+        #search-criteria .date-box input {
+            width: 100px;
+        }
+        #search-criteria .date-box .column {
+            margin-left: 15px;
+        }
+        
+        
+#search-results tbody td {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}
+#search-results tbody p {
+    margin-left: 27px;
+    position: relative;
+    top: 5px;
+}
+#search-results .row-hover {
+    background-color: #FFE2D6;
+    cursor: pointer;
+}
+
+
+#view-receipt {
+    display: none;
+}
+.content-overlay {
+    max-width: 900px;
+}
+.receipt-info {
+    text-align: left;
+    height: 120px;
+}
+    .receipt-info div {
+        float: left;
+    }
+    .receipt-info .left-div {
+        margin-right: 100px;
+    }
+    .receipt-info p {
+        margin-bottom: 5px;
+        height: 20px;
+        line-height: 20px;
+    }
+        .receipt-info p span {
+            height: 20px;
+            line-height: 20px;
+        }
+    .receipt-info .receipt-comments {
+        display: block;
+        float: left;
+        width: 190px;
+        line-height: 0;
+        height: 0;
+    }
+    .receipt-info label {
+        padding-left: 0px;
+        display: block;
+        float: left;
+        width: 100px;
+        font-weight: bold;
+        cursor: default;
+    }
+.product-table {
+    box-shadow: 0px 0px 10px #999;
+    border-radius: 5px;
+    width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+    .product-table span {
+        display: block;
+        float: left;
+    }
+    .product-table .product-name {
+        width: 295px;
+    }
+    .product-table .product-price {
+        width: 120px;
+    }
+    .product-table .product-refunded {
+        width: 100px;
+        border: 0;
+    }
+    .product-table .products-head {
+        background-color: #e1e1e1;
+        border-radius: 5px 5px 0px 0px;
+        height: 35px;
+        line-height: 35px;
+    }
+        .product-table .products-head span {
+            border-right: 1px solid #ccc;
+        }
+        .product-table .products-head .product-refunded {
+            border-right: 0;
+        }
+    .product-table .products-body {
+        max-height: 150px;
+        overflow: auto;
+    }
+    .product-table .product-row {
+        height: 30px;
+        line-height: 30px;
+    }
+        .product-table .product-row .product-refunded {
+            width: 0px;
+            margin-left: 40px;
+        }
+    .product-table .last-product {
+        border-radius: 0 0 5px 5px;
+    }
+    .product-table .odd {
+        background-color: #FFF8F5;
+    }
+    .product-table .even {
+    }
+    
+.controls {
+    margin-top: 40px;
+}
+    .controls button {
+        font-size: 13px;
+    }
+#confirm-delete, #abort-delete {
+    font-size: 15px;
+    margin-top: 5px;
+}

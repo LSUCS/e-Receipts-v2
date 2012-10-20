@@ -1,0 +1,108 @@
+#textboxes {
+    width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+    #textboxes label {
+        display: block;
+        float: left;
+        width: 140px;
+        line-height: 35px;
+        font-size: 15px;
+    }
+    #textboxes .ui-widget {
+        margin-bottom: 10px;
+    }
+        #textboxes .ui-widget span {
+            color: red;
+        }
+    #textboxes input[type=text] {
+        font-size: 15px;
+    }
+    
+#products {
+    width: 180px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 35px;
+}
+#add-product {
+    font-size: 13px;
+    width: 100px;
+    margin-left: 10px;
+}
+
+#selected-products {
+    width: 310px;
+    min-height: 40px;
+    max-height: 160px;
+    overflow: auto;
+    border: 1px solid #f99871;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 12px;
+    color: #bbb;
+    line-height: 40px;
+}
+    #selected-products .product {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 20px;
+        font-size: 14px;
+        color: #333;
+    }
+        .product:hover {
+            background-color: #ddd;
+        }
+    #selected-products .odd {
+        background-color: #F7F7F7;
+    }
+    #selected-products .even {
+        background-color: #fff;
+    }
+    #selected-products .delete-product {
+        background-image: url('../../images/delete.png');
+        background-repeat: no-repeat;
+        height: 20px;
+        width: 20px;
+        display: block;
+        float: right;
+        position: relative;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+        #selected-products .delete-product:hover {
+            background-image: url('../../images/delete-active.png');
+        }
+        
+#comments {
+    resize: none;
+    width: 310px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 30px;
+    color: #999;
+}
+
+#total {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+    #total span {
+        font-weight: bold;
+    }
+    
+#issue-receipt {
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: 14px;
+}

@@ -1,0 +1,36 @@
+#product-table tbody td {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+#product-table tbody p {
+    margin-left: 27px;
+    position: relative;
+    top: 5px;
+}
+
+
+#add-product {
+    margin-top: 40px;
+    margin-left: 60px;
+    height: 40px;
+}
+    #add-product div, #add-product p {
+        float: left;
+        line-height: 30px;
+        margin-right: 40px;
+    }
+    #add-product p {
+        position: relative;
+        top: 9px;
+        margin-left: -35px;
+    }
+    #product-price {
+        width: 50px;
+    }
+    #event {
+        width: 120px;
+    }
+#add-button {
+    font-size: 12px;
+}

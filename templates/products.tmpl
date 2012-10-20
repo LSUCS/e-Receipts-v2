@@ -1,0 +1,18 @@
+<div id="products">
+</div>
+
+<div id="add-product">
+    <div><input type="text" id="product-name" value="Product Name" /></div>
+    <div><input type="text" id="product-price" value="Price" /></div>
+    <div>Available:</div>
+    <p>
+        <input type="checkbox" id="product-available" checked='1' />
+        <label for="product-available"></label>
+    </p>
+    <div>
+        <select id="event">
+            <?php foreach ($DataBag["events"] as $event) echo '<option value="' . $event["event_id"] . '">' . $event["event_name"] . '</option>'; ?>
+        </select>
+    </div>
+    <div><button id="add-button">Add Product</button></div>
+</div>
