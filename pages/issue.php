@@ -47,6 +47,10 @@
                     $res = $this->parent->db->query("SELECT DISTINCT(issuer_forum_name) FROM `receipt` WHERE issuer_forum_name LIKE '%%%s%%'", $this->inputs["term"]);
                     while ($row = $res->fetch_assoc()) $results[] = $row["issuer_forum_name"];
                     break;
+                case "customer_forum_name":
+                    $res = $this->parent->db->query("SELECT DISTINCT(customer_forum_name) FROM `receipt` WHERE customer_forum_name LIKE '%%%s%%'", $this->inputs["term"]);
+                    while ($row = $res->fetch_assoc()) $results[] = $row["customer_forum_name"];
+                    break;
                 case "product":
                     $res = $this->parent->db->query("SELECT DISTINCT(product_name) FROM `product` WHERE product_name LIKE '%%%s%%'", $this->inputs["term"]);
                     while ($row = $res->fetch_assoc()) $results[] = $row["product_name"];
@@ -123,6 +127,7 @@
             
             //Add purchased products to database
             $lanPurchases = array();
+            $lan = null;
             foreach ($products as $product) {
                 $this->parent->db->query("INSERT INTO `purchase` (receipt_id, product_id, price) VALUES ('%s', '%s', '%s')", $receiptID, $product["product_id"], $product["price"]);
                 $purchaseID = $this->parent->db->getLink()->insert_id;
@@ -131,7 +136,8 @@
                 if ($product["event_id"] != "") {
                     //Check if event is a LAN
                     $event = $this->parent->db->query("SELECT * FROM `event` WHERE event_id = '%s'", $product["event_id"])->fetch_assoc();
-                    if ($event && preg_match("/^LAN(\d\d+?)$/", $event["event_name"], $matches) == 1) {
+                    if ($event && preg_match("/LAN(\d\d+?\.?\d?)/", $event["event_name"], $matches) == 1) {
+                        $lan = $matches[1];
                         //Member ticket?
                         if (preg_match("/non\-?member/i", $product["product_name"])) $lanPurchases[] = array("type" => "non_member", "purchase_id" => $purchaseID);
                         else $lanPurchases[] = array("type" => "member", "purchase_id" => $purchaseID);
@@ -147,12 +153,12 @@
             // SUBMIT TICKETS
             /********************/
             $claimKeys = array();
-            if (count($lanPurchases) > 0) {
+            if (count($lanPurchases) > 0 && $lan != null) {
             
                 //Set up field values
                 $fields = array("api_key" => $this->parent->config->api["api_key"],
                                 "purchases" => json_encode($lanPurchases),
-                                "lan" => "35",
+                                "lan" => $lan,
                                 "name" => $this->inputs["name"],
                                 "email" => $this->inputs["email"],
                                 "forum_name" => $this->inputs["forum"]);   

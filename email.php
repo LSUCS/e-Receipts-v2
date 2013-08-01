@@ -55,7 +55,12 @@
             $this->message->setBody($this->template);
             
             //Send and return
-            return $result = $mailer->send($this->message);
+			try {
+				return $result = $mailer->send($this->message);
+			} catch (Exception $e) {
+				file_put_contents("email-fail.txt", $e->getMessage());
+				return false;
+			}
         
         }
     

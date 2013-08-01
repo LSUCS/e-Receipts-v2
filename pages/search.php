@@ -245,7 +245,7 @@
                             $row["date"],
                             $row["name"],
                             $row["email"],
-                            $row["issuer_forum_name"],
+                            $row["customer_forum_name"],
                             implode(", ", $productarr)
                             );
 

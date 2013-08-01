@@ -26,7 +26,7 @@ $(document).ready(function() {
     //Product autocomplete
     $("#product").autocomplete({
         source: "index.php?page=issue&action=search&type=product",
-        select: function(event, ui) { $("#search-value").val(ui.item.value); search(); },
+        select: function(event, ui) { $("#product").val(ui.item.value); search(); },
         minLength: 1,
     });
     
@@ -151,7 +151,7 @@ function search() {
                     { "sTitle": "Date", "sWidth": "80px" },
                     { "sTitle": "Name" },
                     { "sTitle": "Email" },
-                    { "sTitle": "Issuer" },
+                    { "sTitle": "Forum" },
                     { "sTitle": "Products", "sWidth": "200px" }
                 ] } );
         },
