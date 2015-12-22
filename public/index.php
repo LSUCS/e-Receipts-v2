@@ -1,35 +1,38 @@
 <?php
-
     ini_set('display_errors','On');
     error_reporting(E_ALL);
     setlocale(LC_MONETARY, 'en_GB');
 
-	//Includes
-	include("config.php");
-	include("db.php");
-    include("auth.php");
-    include("template.php");
-	include("pages/page.php");
-    include("email.php");
+    // Path defines
+    define('WEBROOT', $_SERVER['DOCUMENT_ROOT']);
+    define('ROOT', dirname($_SERVER['DOCUMENT_ROOT']));
 
-	$main = new Main();
-	
-	class Main {
-		
-		//Setup some variables
-		public $config;
-		public $db;
+    //Includes
+    include("../config.php");
+    include("../db.php");
+    include("../auth.php");
+    include("../template.php");
+    include("../pages/page.php");
+    include("../email.php");
+
+    $main = new Main();
+    
+    class Main {
+        
+        //Setup some variables
+        public $config;
+        public $db;
         public $settings;
         public $auth;
         public $template;
-		public $pages;
-		public $page;
-		
-		function __construct() {
-			
+        public $pages;
+        public $page;
+        
+        function __construct() {
+            
             //Load base classes
-			$this->config   = new Config();
-			$this->db       = new Db($this);
+            $this->config   = new Config();
+            $this->db       = new Db($this);
             $this->auth     = new Auth($this);
             
             //Load template manager
@@ -58,15 +61,15 @@
             }
             
             //Include requested page
-            include("pages/" . $this->page . ".php");
+            include("../pages/" . $this->page . ".php");
             $class = $this->page . "_Page";
             $child = new $class($this);
         
-			//See if there is a specified action to run or if we are running default
-			$method = 'actionIndex';
-			if (isset($_GET["action"]) && method_exists($child, "action" . ucwords(strtolower($_GET["action"])))) {
-				$method = 'action' . ucwords(strtolower($_GET["action"]));
-			}
+            //See if there is a specified action to run or if we are running default
+            $method = 'actionIndex';
+            if (isset($_GET["action"]) && method_exists($child, "action" . ucwords(strtolower($_GET["action"])))) {
+                $method = 'action' . ucwords(strtolower($_GET["action"]));
+            }
             
             //Validate inputs against running method and store in child
             $inputarr = $child->getInputs();
@@ -83,11 +86,11 @@
                     }
                 }
             }
-			
-			//Run child page action
-			call_user_func(array($child, $method));
-			
-		}
+            
+            //Run child page action
+            call_user_func(array($child, $method));
+            
+        }
         
         /**
          * Loops through all events checking if they are sold out
@@ -104,7 +107,7 @@
             }
             
         }
-		
-	}
-	
+        
+    }
+    
 ?>

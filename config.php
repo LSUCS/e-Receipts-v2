@@ -1,16 +1,16 @@
 <?php
 
 	class Config {
-		
-		public $database;
-		public $auth;
-        public $page;
-        public $email;
-        public $api;
-		
-		function __construct() {
+
+    public $database;
+    public $auth;
+    public $page;
+    public $email;
+    public $api;
+
+	function __construct() {
         
-            require_once("../passwords.php");
+    	require_once(ROOT . "/../passwords.php");
 			
 			/**
 			 * Database
