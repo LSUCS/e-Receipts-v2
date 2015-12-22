@@ -40,7 +40,7 @@
         }
         
         function outputTemplate($template, $DataBag = "") {
-            include("templates/" . $template . ".tmpl");
+            include(ROOT . "/templates/$template.tmpl");
         }
     
     }

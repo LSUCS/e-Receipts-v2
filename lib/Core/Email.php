@@ -11,7 +11,7 @@
         public function __construct($parent) {
         
             //Require Swift Mailer
-            require_once 'lib/swift_required.php';
+            require_once(ROOT . '/lib/SwiftMailer/swift_required.php');
             $this->config = $parent->config->email;
            
             //Set up message
@@ -21,7 +21,7 @@
         
         //Template management
         public function loadTemplate($template) {
-            $this->template = file_get_contents("emails/" . $template . ".html");
+            $this->template = file_get_contents(ROOT . "/emails/$template.html");
         }
         
         public function replaceKey($key, $value) {
@@ -55,12 +55,12 @@
             $this->message->setBody($this->template);
             
             //Send and return
-			try {
-				return $result = $mailer->send($this->message);
-			} catch (Exception $e) {
-				file_put_contents("email-fail.txt", $e->getMessage());
-				return false;
-			}
+            try {
+                return $result = $mailer->send($this->message);
+            } catch (Exception $e) {
+                file_put_contents("email-fail.txt", $e->getMessage());
+                return false;
+            }
         
         }
     
